@@ -1,20 +1,19 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import Pizza from '../models/Pizza';
+import SinglePizza from './SinglePizza';
 
 interface DisplayPizzasProps {
     pizzasList: Pizza[],
+    updatePizza: (newPizza: Pizza) => void,
+    deletePizza: (id: number) => void,
 }
 
-const DisplayPizzas: FC<DisplayPizzasProps> = ({pizzasList}) => {
- 
+const DisplayPizzas: FC<DisplayPizzasProps> = ({pizzasList, updatePizza, deletePizza}) => {
+
     return (
         <ul className='container'>
             {pizzasList.map((pizza) => (
-                <li key={pizza.id}>
-                    <img width='300' src={pizza.img} alt="pizza" />
-                    <h3>{pizza.title}</h3>
-                    <p>{pizza.price}</p>
-                </li>
+                <SinglePizza key={pizza.id} {...{pizza, updatePizza, deletePizza}}/>
             ))}
         </ul>
     )
