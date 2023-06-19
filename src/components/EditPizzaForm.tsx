@@ -28,7 +28,7 @@ const EditPizzaForm: FC<EditPizzaFormProps> = ({ data, updatePizza, handleToggle
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='edit-form' onSubmit={handleSubmit}>
             <input 
                 type="text"
                 name='title'

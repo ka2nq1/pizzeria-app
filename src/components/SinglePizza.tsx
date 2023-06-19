@@ -17,11 +17,11 @@ const SinglePizza: FC<SinglePizzaProps> = ({pizza, updatePizza, deletePizza}) =>
     }
 
     return (
-        <li>
+        <li className='pizza'>
             <img width='300' src={pizza.img} alt="pizza" />
-            <h3>{pizza.title}</h3>
-            <p>{pizza.price}</p>
-            <div className='pizzaControls'>
+            <h2>{pizza.title}</h2>
+            <span>{pizza.price}₴</span>
+            <div className='pizza-controls'>
                 <AiFillEdit onClick={handleToggleEdit}/>
                 <AiFillDelete onClick={() => deletePizza(pizza.id)}/>
             </div>
